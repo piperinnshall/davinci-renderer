@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="DavinciRenderer"
+run/main_scene="uid://drrsk0gy6w8vh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
