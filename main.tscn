@@ -1,44 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://drrsk0gy6w8vh"]
+[gd_scene load_steps=4 format=3 uid="uid://drrsk0gy6w8vh"]
 
-[ext_resource type="Shader" uid="uid://dd2kv4x718cc2" path="res://shader/sobel.gdshader" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://cxvjb7u0k8f17" path="res://freelook.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://l38l4pj26x8p" path="res://scenes/camera/free_cam_3d.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ddjtunef7sp2o" path="res://scenes/shaders/sobel_quad.tscn" id="3_h2yge"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ig7tw"]
-render_priority = 0
-shader = ExtResource("1_ig7tw")
-shader_parameter/threshold = 0.5
-shader_parameter/thickness = 0.1
-shader_parameter/line_color = Color(0.4, 0.4, 0.4, 1)
-shader_parameter/background_color = Color(0.9, 0.9, 0.9, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_0xm2m"]
-material = SubResource("ShaderMaterial_ig7tw")
-
-[sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
 
 [node name="Main" type="Node3D"]
 
-[node name="Filter" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.25881916, -8.940697e-08, 0.9659263, 4.4703484e-08, 1.0000001, 1.7881393e-07, -0.9659262, 0, -0.25881937, -5.9604645e-07, 0.99999905, 8.34465e-07)
-mesh = SubResource("CapsuleMesh_0xm2m")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-mesh = SubResource("BoxMesh_h2yge")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.50000006, -0.2961981, 0.81379765, 0, 0.9396926, 0.34202012, -0.8660254, 0.17101008, -0.46984637, 2, 1, -1)
-script = ExtResource("2_0xm2m")
+mesh = SubResource("BoxMesh_0xm2m")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.81149745, -0.24433124, 0.53082407, -0.020298045, 0.9196294, 0.39226252, -0.58400327, 0.3075453, -0.7512363, 4, 2, -3)
+transform = Transform3D(-0.86602545, 0, 0.49999994, 0.1294095, 0.9659258, 0.22414388, -0.48296285, 0.25881904, -0.8365163, 0, 1, -3)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+[node name="FreeCam3d" parent="." instance=ExtResource("2_0xm2m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SobelQuad" parent="FreeCam3d" instance=ExtResource("3_h2yge")]
