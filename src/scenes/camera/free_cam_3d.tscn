@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://l38l4pj26x8p"]
 
-[ext_resource type="Script" uid="uid://cxvjb7u0k8f17" path="res://scripts/free_cam.gd" id="1_s6pr6"]
+[ext_resource type="Script" uid="uid://cxvjb7u0k8f17" path="res://src/scripts/free_cam.gd" id="1_s6pr6"]
 
 [node name="FreeCam3D" type="Camera3D"]
 script = ExtResource("1_s6pr6")

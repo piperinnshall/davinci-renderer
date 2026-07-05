@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://feo5yttcnhpy"]
 
-[ext_resource type="Shader" uid="uid://bcaima0j1lkkr" path="res://shaders/hexalization.gdshader" id="1_hdd62"]
+[ext_resource type="Shader" uid="uid://bcaima0j1lkkr" path="res://src/shaders/hexalization.gdshader" id="1_hdd62"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
 shader = ExtResource("1_hdd62")

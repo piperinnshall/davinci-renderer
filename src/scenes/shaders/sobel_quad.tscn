@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddjtunef7sp2o"]
 
-[ext_resource type="Shader" uid="uid://dd2kv4x718cc2" path="res://shaders/sobel.gdshader" id="1_lgl6y"]
+[ext_resource type="Shader" uid="uid://dd2kv4x718cc2" path="res://src/shaders/sobel.gdshader" id="1_lgl6y"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_h2yge"]
 flip_faces = true

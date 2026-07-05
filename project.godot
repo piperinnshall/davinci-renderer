@@ -14,3 +14,12 @@ config/name="DavinciRenderer"
 run/main_scene="uid://drrsk0gy6w8vh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://src/resources/": "orange",
+"res://src/scenes/": "green",
+"res://src/scripts/": "blue",
+"res://src/shaders/": "pink"
+}
