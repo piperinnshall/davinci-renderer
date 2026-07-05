@@ -6,7 +6,6 @@ uniform sampler2D NORMAL_TEXTURE: hint_normal_roughness_texture, filter_linear_m
 
 uniform float threshold: hint_range(0.0, 1.0, 0.01) = 0.5;
 uniform vec3 line_color: source_color = vec3(0.4);
-uniform vec3 background_color: source_color = vec3(0.9);
 
 const mat3 kernel_h = mat3(
 	vec3(1.0, 2.0, 1.0),
@@ -45,5 +44,7 @@ void fragment() {
 	for (int i = 0; i <= 2; i++) gy += dot(kernel_v[i], pixels[i]);
 	float sobel = sqrt(gx * gx + gy * gy);
 	
-	ALBEDO = sobel > threshold ? line_color : background_color;
+	vec3 background_color = texture(SCREEN_TEXTURE, SCREEN_UV).rgb;
+	float edge = smoothstep(threshold - 0.05, threshold + 0.05, sobel);
+	ALBEDO = mix(background_color, line_color, edge);
 }
